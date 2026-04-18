@@ -14,10 +14,11 @@ class RailFenceCipher(BaseCipher):
         for char in text:
             fence[row].append(char)
 
+            if row == 0:
+                direction = 1
+            elif row == rails - 1:
+                direction -= 1
             row += direction
-
-            if row == 0 or row == rails - 1:
-                direction *= -1
 
         return "".join("".join(r) for r in fence)
     
@@ -30,10 +31,12 @@ class RailFenceCipher(BaseCipher):
 
         for _ in text:
             pattern[row].append("*")
+            
+            if row == 0:
+                direction = 1
+            elif row == rails - 1:
+                direction -= 1
             row += direction
-
-            if row == 0 or row == rails - 1:
-                direction *= -1
 
         index = 0
         for i in range(rails):
@@ -49,9 +52,10 @@ class RailFenceCipher(BaseCipher):
             result.append(pattern[row][pointers[row]])
             pointers[row] += 1
 
+            if row == 0:
+                direction = 1
+            elif row == rails - 1:
+                direction -= 1
             row += direction
-
-            if row == 0 or row == rails - 1:
-                direction *= -1
 
         return "".join(result)
