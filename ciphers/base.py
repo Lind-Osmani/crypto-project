@@ -15,11 +15,11 @@ class BaseCipher(ABC):
         pass
         
     def run(self):
-    text = input("Shkruaj tekstin: ")
+        text = input("Shkruaj tekstin: ")
 
-    encrypted = self.encrypt(text)
-    decrypted = self.decrypt(encrypted)
+        encrypted = self.encrypt(text)
+        decrypted = self.decrypt(encrypted)
 
-    print("Original :", text)
-    print("Encrypted:", encrypted)
-    print("Decrypted:", decrypted)
+        print("Original :", text)
+        print("Encrypted:", encrypted)
+        print("Decrypted:", decrypted)
