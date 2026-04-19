@@ -1,43 +1,36 @@
-from ciphers.homophonic import HomophonicCipher
+rom ciphers.homophonic import HomophonicCipher
 from ciphers.rail_fence import RailFenceCipher
 from ciphers.morse import MorseCode
 
+
 def main():
-    # Create cipher objects (polymorphism in action)
-    homophonic = HomophonicCipher()
-    rail_fence = RailFenceCipher()
-    morse = MorseCode()
+    # Registry (Strategy Pattern)
+    ciphers = {
+        "1": HomophonicCipher(),
+        "2": RailFenceCipher(),
+        "3": MorseCode()
+    }
 
-    text = "HELLO WORLD"
+    while True:
+        print("\n========== CIPHER SYSTEM ==========")
 
-    print("\n===== DEMO RUN =====")
+        for key, cipher in ciphers.items():
+            print(f"{key}. {cipher.name}")
 
-    # ---------------- HOMOPHONIC ----------------
-    print("\n[Homophonic Cipher]")
-    enc = homophonic.encrypt(text)
-    dec = homophonic.decrypt(enc)
+        print("0. Exit")
 
-    print("Original :", text)
-    print("Encrypted:", enc)
-    print("Decrypted:", dec)
+        choice = input("Zgjedh opsionin: ")
 
-    # ---------------- RAIL FENCE ----------------
-    print("\n[Rail Fence Cipher]")
-    enc = rail_fence.encrypt(text, 3)
-    dec = rail_fence.decrypt(enc, 3)
+        if choice == "0":
+            print("Programi u mbyll.")
+            break
 
-    print("Original :", text)
-    print("Encrypted:", enc)
-    print("Decrypted:", dec)
+        cipher = ciphers.get(choice)
 
-    # ---------------- MORSE ----------------
-    print("\n[Morse Code]")
-    enc = morse.encrypt(text)
-    dec = morse.decrypt(enc)
-
-    print("Original :", text)
-    print("Encrypted:", enc)
-    print("Decrypted:", dec)
+        if cipher:
+            cipher.run()   # 🔥 polymorphism in action
+        else:
+            print("Opsion i pavlefshëm!")
 
 
 if __name__ == "__main__":
