@@ -2,6 +2,8 @@ from .base import BaseCipher
 
 class MorseCode(BaseCipher):
 
+    name = "Morse"
+
     MORSE_DICT = {
         "A": ".-", "B": "-...", "C": "-.-.", "D": "-..",
         "E": ".", "F": "..-.", "G": "--.", "H": "....",

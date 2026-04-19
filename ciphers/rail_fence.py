@@ -1,6 +1,8 @@
 from .base import BaseCipher
 
 class RailFenceCipher(BaseCipher):
+
+    name = "RailFence"
     
     def encrypt(self, text: str, rails: int) -> str:
         if not isinstance(rails, int):

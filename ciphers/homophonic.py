@@ -4,6 +4,8 @@ from .base import BaseCipher
 
 class HomophonicCipher(BaseCipher):
 
+    name = "Homophonic"
+
     def __init__(self):
         self.alphabet = string.ascii_uppercase
         self.mapping = {}
