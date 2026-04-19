@@ -1,9 +1,7 @@
 from .base import BaseCipher
 
 class RailFenceCipher(BaseCipher):
-    def __init__(self):
-        super().__init__("Rail Fence Cipher")
-
+    
     def encrypt(self, text: str, rails: int) -> str:
         if not isinstance(rails, int):
             raise TypeError('rails must be an integer.')
