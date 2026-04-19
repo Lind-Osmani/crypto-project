@@ -1,4 +1,4 @@
-rom ciphers.homophonic import HomophonicCipher
+from ciphers.homophonic import HomophonicCipher
 from ciphers.rail_fence import RailFenceCipher
 from ciphers.morse import MorseCode
 
@@ -28,7 +28,7 @@ def main():
         cipher = ciphers.get(choice)
 
         if cipher:
-            cipher.run()   # 🔥 polymorphism in action
+            cipher.run()
         else:
             print("Opsion i pavlefshëm!")
 
