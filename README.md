@@ -23,7 +23,7 @@ Program interaktiv në **Python** që demonstron tre algoritme kriptografike: **
 ### 2. Kaloni në dosjen e projektit
 
 ```bash
-cd /rruga/deri/te/crypt-project
+cd /rruga/deri/te/crypto-project
 ```
 
 Zëvendësoni `/rruga/deri/te/new-project` me rrugën reale ku ndodhet projekti në kompjuterin tuaj (p.sh. në macOS shpesh `~/new-project` ose `~/Documents/new-project`).
