@@ -5,7 +5,9 @@ class RailFenceCipher(BaseCipher):
         super().__init__("Rail Fence Cipher")
 
     def encrypt(self, text: str, rails: int) -> str:
-        if rails == 1:
+        if not isinstance(rails, int):
+            raise TypeError('rails must be an integer.')
+        if rails < 2 or rails >= len(text):
             return text
         
         fence = [[] for _ in range(rails)]
@@ -17,13 +19,15 @@ class RailFenceCipher(BaseCipher):
             if row == 0:
                 direction = 1
             elif row == rails - 1:
-                direction -= 1
+                direction = -1
             row += direction
 
         return "".join("".join(r) for r in fence)
     
     def decrypt(self, text: str, rails: int) -> str:
-        if rails == 1: 
+        if not isinstance(rails, int):
+            raise TypeError('rails must be an integer.')
+        if rails < 2 or rails >= len(text):
             return text
         
         pattern = [[] for _ in range(rails)]
@@ -35,7 +39,7 @@ class RailFenceCipher(BaseCipher):
             if row == 0:
                 direction = 1
             elif row == rails - 1:
-                direction -= 1
+                direction = -1
             row += direction
 
         index = 0
@@ -55,7 +59,7 @@ class RailFenceCipher(BaseCipher):
             if row == 0:
                 direction = 1
             elif row == rails - 1:
-                direction -= 1
+                direction = -1
             row += direction
 
         return "".join(result)
