@@ -61,3 +61,14 @@ class RailFenceCipher(BaseCipher):
             row += direction
 
         return "".join(result)
+
+    def run(self):
+        text = input("Shkruaj tekstin: ")
+        rails = int(input("Numri i rails: "))
+
+        encrypted = self.encrypt(text, rails)
+        decrypted = self.decrypt(encrypted, rails)
+
+        print("Original :", text)
+        print("Encrypted:", encrypted)
+        print("Decrypted:", decrypted)
